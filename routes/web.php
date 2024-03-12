@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
 Route::get('/home', function () {
     $blogs = [
@@ -46,7 +51,7 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     $about = 'This is about page';
     $about2 = 'This is about two';
-    return view('about',compact('about','about2'));;
+    return view('about', compact('about', 'about2'));;
 });
 
 
@@ -54,20 +59,20 @@ Route::get('/contant', function () {
     return view('contant.index');
 });
 
-route::group(['prefix' => 'customer'],function(){
+route::group(['prefix' => 'customer'], function () {
     Route::get('/', function () {
         return "<h1>customer list</h1>";
     });
-    
+
     Route::get('/create', function () {
         return "<h1>customer create</h1>";
     });
-    
+
     Route::get('/show', function () {
         return "<h1>customer show</h1>";
     });
 });
 
-route::fallback(function (){
+route::fallback(function () {
     return "Route not exist";
 });
