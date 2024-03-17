@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use function Laravel\Prompts\password;
+use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -13,15 +11,8 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function handleLogin(Request $req)
+    public function handleLogin(LoginRequest $req)
     {
-        $req->validate([
-            // 多條件驗證:必填，只能是英文字元，至少六個字元
-            'name' => ['required', 'alpha', 'min:6', 'max:10'],
-            'password' => 'required',
-            'email' => ['required', 'email']
-        ]);
-
         return $req;
     }
 }

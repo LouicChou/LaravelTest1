@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,31 +23,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 
-Route::get('/home', function () {
-    $blogs = [
-        [
-            'title' => 'title one',
-            'body' => 'this is body text',
-            'status' => '1'
-        ],
-        [
-            'title' => 'title two',
-            'body' => 'this is body text',
-            'status' => '0'
-        ],
-        [
-            'title' => 'title three',
-            'body' => 'this is body text',
-            'status' => '1'
-        ],
-        [
-            'title' => 'title four',
-            'body' => 'this is body text',
-            'status' => '1'
-        ]
-    ];
-    return view('home', compact('blogs'));
-});
+Route::get('/home', HomeController::class);
 
 Route::get('/about', function () {
     $about = 'This is about page';
