@@ -20,14 +20,14 @@ class HomeController extends Controller
 
 
         // Mass Assignment - insert
-        $post = myPost::create([
-            'title' => 'this is title from Mass assign 07',
-            'description' => 'this is description from Mass assign 07',
-            'status' => 1,
-            'Publish_date' => date('Y-m-d'),
-            'user_id' => 7,
-            'category_id' => 17,
-        ]);
+        // $post = myPost::create([
+        //     'title' => 'this is title from Mass assign 07',
+        //     'description' => 'this is description from Mass assign 07',
+        //     'status' => 1,
+        //     'Publish_date' => date('Y-m-d'),
+        //     'user_id' => 7,
+        //     'category_id' => 17,
+        // ]);
 
         // dd('success');
 
@@ -60,7 +60,7 @@ class HomeController extends Controller
         // return myPost::where('category_id', '>', 0)->where('user_id', '>', 2)->get();
 
         // 取得category_id>0或是user_id>2的資料
-        return myPost::where('category_id', '>', 0)->orwhere('user_id', '>', 2)->get();
+        // return myPost::where('category_id', '>', 0)->orwhere('user_id', '>', 2)->get();
 
 
         //取得id為13的title內容，若沒有這個id就拋回404錯誤(findorfail())，若沒使用會得到一片空白
@@ -136,33 +136,33 @@ class HomeController extends Controller
 
         //使用聚集Aggregates
 
-        return DB::table('posts')->sum('id');
-        return DB::table('posts')->count();
+        // return DB::table('posts')->sum('id');
+        // return DB::table('posts')->count();
 
 
         // transfer var
-        // $blogs = [
-        //     [
-        //         'title' => 'title one',
-        //         'body' => 'this is a.body text',
-        //         'status' => 1
-        //     ],
-        //     [
-        //         'title' => 'title two',
-        //         'body' => 'this is b.body text',
-        //         'status' => 0
-        //     ],
-        //     [
-        //         'title' => 'title three',
-        //         'body' => 'this is c.body text',
-        //         'status' => 1
-        //     ],
-        //     [
-        //         'title' => 'title fore',
-        //         'body' => 'this is d.body text',
-        //         'status' => 0
-        //     ]
-        // ];
-        // return view('home', compact('blogs'));
+        $blogs = [
+            [
+                'title' => 'title one',
+                'body' => 'this is a.body text',
+                'status' => 1
+            ],
+            [
+                'title' => 'title two',
+                'body' => 'this is b.body text',
+                'status' => 0
+            ],
+            [
+                'title' => 'title three',
+                'body' => 'this is c.body text',
+                'status' => 1
+            ],
+            [
+                'title' => 'title fore',
+                'body' => 'this is d.body text',
+                'status' => 0
+            ]
+        ];
+        return view('home', compact('blogs'));
     }
 }
