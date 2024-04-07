@@ -42,4 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function address()
+    {
+        // hasone(資料表模名名稱::class,外部KEY(預設是user_id)，內部KEY(預設是id))
+        // 將資料表addresses的user_id改成u_id
+        return $this->hasOne(Address::class, 'u_id');
+    }
 }

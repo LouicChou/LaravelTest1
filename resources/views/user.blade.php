@@ -2,31 +2,27 @@
 
 @section('content')
     <main role="main" class="container">
-        <h1 class="mt-5 text-danger">User</h1>
-        User
-
         <div class="row mt-5">
-            @foreach ($blogs as $blog)
-                @if ($blog['status'] == 1)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2>{{ $blog['title'] }}</h2>
-                                <p>{{ $blog['body'] }}</p>
-                            </div>
+            @foreach ($addresses as $address)
+                {{-- <div class="col-md-3">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <h4>{{ $user->name }}</h4>
+                            <p>{{ $user->email }}</p>
+                            <p>{{ $user->address }}</p>
                         </div>
                     </div>
-                @else
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2>{{ $blog['title'] }}</h2>
-                                <p>{{ $blog['body'] }}</p>
-                                <div class="btn-sm btn-warning">Pending</div>
-                            </div>
+                </div> --}}
+                <div class="col-md-3">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <h4>{{ $address->user->name }}</h4>
+                            <p>{{ $address->user->email }}</p>
+                            <p>{{ $address->address }}</p>
                         </div>
                     </div>
-                @endif
+                </div>
             @endforeach
+        </div>
     </main>
 @endsection
