@@ -20,7 +20,8 @@ class PostSeeder extends Seeder
                 'description' => Str::random(30),
                 'status' => 1,
                 'Publish_date' => date('Y-m-d'),
-                'user_id' => 1
+                'user_id' => 1,
+                'category_id' => 1
             ]);
         }
     }
