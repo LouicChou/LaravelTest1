@@ -33,7 +33,7 @@ class myPost extends Model
         return $this->belongsTo(Category::class);
     }
 
-
+    // 資料表多對多belongsToMany()
     public function tags()
     {
         // 有遵守資料表跟欄位的命名原則就只需要一個參數Tag::class
